@@ -51,4 +51,26 @@ public class Browser {
     private static WebElement paginationUL(){
         return paginationTextCenter().findElement(By.tagName("ul"));
     }
+
+    public static WebElement selectThirdItem() {
+        var elms = searchResultList().findElements(By.tagName("div"));
+        WebElement result = null;
+        for (WebElement item: elms) {
+            if(item.getAttribute("data-index") != null){
+                if(item.getAttribute("data-index").equals("2")){
+                    result = item.findElement(By.tagName("a"));
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+    
+    private static WebElement searchResultComponent(){
+        return driver.findElement(By.cssSelector("span[data-component-type='s-search-results']"));
+    }
+    
+    private static WebElement searchResultList(){
+        return searchResultComponent().findElement(By.cssSelector("div[class='s-result-list s-search-results sg-row']"));
+    }
 }

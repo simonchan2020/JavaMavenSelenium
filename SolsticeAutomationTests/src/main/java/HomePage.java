@@ -30,4 +30,11 @@ public class HomePage {
     public void navigateToSecondPage() {
         Browser.paginationSecondPage().click();
     }
+
+    /***
+     * Select the third item from the product list
+     */
+    public void selectTheThirdItem() {
+        Browser.selectThirdItem().click();
+    }
 }
