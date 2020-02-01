@@ -1,9 +1,13 @@
 # SolsticeAssignment
 
-Tools used in this project: IntelliJ IDEA
-Language: Java
-Framework: Selenium, Junit, and Maven
-No manual dependency fetching requried.
+Tools used in this project
+* IDE: IntelliJ IDEA
+* Language: Java
+* Framework: Selenium, Junit, and Maven
+* Platform: Mac OS
+
+Condition
+* No manual dependency fetching requried
 
 Action
 * GIVEN the user navigates to www.amazon.com
