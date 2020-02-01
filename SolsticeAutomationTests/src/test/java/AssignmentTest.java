@@ -1,4 +1,5 @@
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class AssignmentTest {
@@ -18,6 +19,9 @@ public class AssignmentTest {
         Pages.homePage().searchButtonClick();
         Pages.homePage().navigateToSecondPage();
         Pages.homePage().selectTheThirdItem();
+
+        Assert.assertTrue(Pages.homePage().isSelectedItemAvailableInStock());
+        Assert.assertTrue(Pages.homePage().isAddCartButtonDisplay());
     }
 
     @AfterClass

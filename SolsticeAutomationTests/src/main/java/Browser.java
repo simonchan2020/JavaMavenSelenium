@@ -73,4 +73,12 @@ public class Browser {
     private static WebElement searchResultList(){
         return searchResultComponent().findElement(By.cssSelector("div[class='s-result-list s-search-results sg-row']"));
     }
+
+    public static WebElement itemAvailability() {
+        return driver.findElement(By.id("availability"));
+    }
+
+    public static WebElement addCartButton(){
+        return driver.findElement(By.id("add-to-cart-button"));
+    }
 }

@@ -37,4 +37,20 @@ public class HomePage {
     public void selectTheThirdItem() {
         Browser.selectThirdItem().click();
     }
+
+    /***
+     * Check weather the selected item is available in stock or exclusively by invitation
+     * @return
+     */
+    public boolean isSelectedItemAvailableInStock() {
+        String actual = Browser.itemAvailability().getText();
+        return (actual.trim().equals("In Stock.") || actual.trim().equals("Available exclusively by invitation"));
+    }
+
+    /***
+     * Add item to cart
+     */
+    public boolean isAddCartButtonDisplay(){
+        return Browser.addCartButton().isDisplayed();
+    }
 }
