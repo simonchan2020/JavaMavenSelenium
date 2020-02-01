@@ -23,4 +23,11 @@ public class HomePage {
     public void searchButtonClick() {
         Browser.searchButton().click();
     }
+
+    /***
+     * Navigate to Second Page
+     */
+    public void navigateToSecondPage() {
+        Browser.paginationSecondPage().click();
+    }
 }

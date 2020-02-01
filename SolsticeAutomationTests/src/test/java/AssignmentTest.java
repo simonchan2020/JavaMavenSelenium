@@ -16,6 +16,7 @@ public class AssignmentTest {
         Pages.homePage().launch();
         Pages.homePage().searchTextInput("Alexa");
         Pages.homePage().searchButtonClick();
+        Pages.homePage().navigateToSecondPage();
     }
 
     @AfterClass
