@@ -12,6 +12,7 @@ public class Browser {
      * @param url url path
      */
     public static void goTo(String url){
+        driver.manage().window().maximize();
         driver.get(url);
     }
 
@@ -29,6 +30,11 @@ public class Browser {
     public static WebElement searchButton() {
         var elm = driver.findElement(By.cssSelector("div[class='nav-search-submit nav-sprite']"));
         return elm.findElement(By.tagName("input"));
+    }
+
+    public static String searchResult(){
+        var elm = driver.findElement(By.cssSelector("div[class='a-section a-spacing-small a-spacing-top-small']"));
+        return elm.findElements(By.tagName("span")).get(2).getText().replace("\"", "");
     }
 
     public static WebElement paginationSecondPage() {

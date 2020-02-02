@@ -1,3 +1,5 @@
+import org.junit.Assert;
+
 public class HomePage {
 
     static String url = "http://www.amazon.com";
@@ -7,21 +9,18 @@ public class HomePage {
      */
     public void launch(){
         Browser.goTo(url);
+        Assert.assertTrue("The user unable navigates to " + url + ", but she should.", Browser.driver.getTitle().toLowerCase().contains("amazon.com"));
     }
 
     /***
-     * Input a string into a Search text box
-     * @param text
+     * Allow to type in a text in search filed text box and click search button
+     * @param text pass-in search string
      */
-    public void searchTextInput(String text) {
+    public void searchItemAndSubmit(String text) {
         Browser.searchTextBox().sendKeys(text);
-    }
-
-    /***
-     * Click the Search button
-     */
-    public void searchButtonClick() {
         Browser.searchButton().click();
+        String result = Browser.searchResult();
+        Assert.assertEquals("Search results does not seems to be for items " + text, result, text);
     }
 
     /***
@@ -29,6 +28,8 @@ public class HomePage {
      */
     public void navigateToSecondPage() {
         Browser.paginationSecondPage().click();
+        String url = Browser.driver.getCurrentUrl();
+        Assert.assertTrue("Clicked the 2nd page does not seems to be on Page 2", url.contains("page=2"));
     }
 
     /***
@@ -39,8 +40,8 @@ public class HomePage {
     }
 
     /***
-     * Check weather the selected item is available in stock or exclusively by invitation
-     * @return
+     * Verify whether the selected item is available in stock or exclusively by invitation or not available
+     * @return true if the item is in stock, else false
      */
     public boolean isSelectedItemAvailableInStock() {
         String actual = Browser.itemAvailability().getText();
@@ -48,9 +49,16 @@ public class HomePage {
     }
 
     /***
-     * Add item to cart
+     * Verify Add to cart button display
      */
     public boolean isAddCartButtonDisplay(){
         return Browser.addCartButton().isDisplayed();
+    }
+
+    /***
+     * Add item to Cart
+     */
+    public void AddItemToCart(){
+        Browser.addCartButton().click();
     }
 }

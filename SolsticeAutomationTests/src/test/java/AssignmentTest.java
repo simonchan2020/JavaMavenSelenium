@@ -14,14 +14,15 @@ public class AssignmentTest {
      */
     @Test
     public void canAddItemToCart(){
+        System.out.println("Test start.........");
         Pages.homePage().launch();
-        Pages.homePage().searchTextInput("Alexa");
-        Pages.homePage().searchButtonClick();
+        Pages.homePage().searchItemAndSubmit("Alexa");
         Pages.homePage().navigateToSecondPage();
         Pages.homePage().selectTheThirdItem();
-
-        Assert.assertTrue(Pages.homePage().isSelectedItemAvailableInStock());
-        Assert.assertTrue(Pages.homePage().isAddCartButtonDisplay());
+        Assert.assertTrue("Selected item is not available in stock. ",Pages.homePage().isSelectedItemAvailableInStock());
+        Assert.assertTrue("Selected item is available, but the Add Cart button is missing. ",Pages.homePage().isAddCartButtonDisplay());
+        Pages.homePage().AddItemToCart();
+        System.out.println("Test End........");
     }
 
     @AfterClass
