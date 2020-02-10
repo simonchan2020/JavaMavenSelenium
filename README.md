@@ -1,4 +1,4 @@
-# SolsticeAssignment
+# Java_Maven_Selenium Project
 
 Tools used in this project
 * IDE: IntelliJ IDEA
